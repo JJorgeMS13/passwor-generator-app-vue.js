@@ -1,26 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <GeneratoPassword />
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import GeneratoPassword from './components/GeneratoPassword.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    GeneratoPassword
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url('/src/assets/fonts/JetBrainsMono-VariableFont_wght.ttf') format('truetype'),
+         url('/src/assets/fonts/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 </style>
