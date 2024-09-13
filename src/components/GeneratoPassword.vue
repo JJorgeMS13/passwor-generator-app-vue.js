@@ -4,7 +4,7 @@
       <h1 class="title">Password Generator</h1>
     </header>
     <section class="password__copy">
-      <span id="showPassword">{{ password }}</span><img @click="copyPassword" src="../assets/images/icon-copy.svg" alt="Icon copy" id="btnCopy">
+      <span id="showPassword" :style="{ color: error }">{{ password }}</span><img @click="copyPassword" src="../assets/images/icon-copy.svg" alt="Icon copy" id="btnCopy">
     </section>
 
     <section class="password__opcion">
@@ -50,7 +50,8 @@
 export default {
     data() {
         return {
-            password: 'pjGT35?¡',
+            error: '#817D92',
+            password: '',
             textDiv: '',
             checkboxs : [
                 { id: 'uppercaseLetter', name: 'uppercaseLetter', text: 'Include Uppercase Letters', checked: false },
@@ -119,7 +120,12 @@ export default {
             let numIteration = 0;
             
             numcheckBoxChosen !== 0 ? numIteration = Math.ceil(this.valueRange / numcheckBoxChosen) : numIteration = 0;
-        
+            this.error = '#817D92';
+            if (numcheckBoxChosen === 0) {
+                this.password = 'Erro: Debe seleccionar al menos 1 check';
+                this.error = '#F64A4A';
+            }
+           
             if(numIteration === 0) return false;
             for (let index = 0; index < numIteration; index++) {
                 this.checkedSelected.forEach((checkIndex) => {    
